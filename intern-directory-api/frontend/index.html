@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="toast"></div>
+
+  <h1>Job Tracker</h1>
+
+  <button id="themeBtn">🌙 Dark Mode</button>
+
+  <div class="stats">
+    <div class="stat-card">
+      <h3>Total</h3>
+      <p id="totalJobs">0</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>Applied</h3>
+      <p id="appliedJobs">0</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>Interview</h3>
+      <p id="interviewJobs">0</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>Rejected</h3>
+      <p id="rejectedJobs">0</p>
+    </div>
+  </div>
+
+  <input
+    type="text"
+    id="search"
+    placeholder="Search by company..."
+    onkeyup="searchJobs()"
+  >
+
+  <div class="controls">
+
+    <div class="filters">
+      <button onclick="loadJobs()">All</button>
+      <button onclick="loadJobs('Applied')">Applied</button>
+      <button onclick="loadJobs('Interview')">Interview</button>
+      <button onclick="loadJobs('Rejected')">Rejected</button>
+    </div>
+
+    <select id="sortJobs" onchange="sortJobs()">
+      <option value="">Sort By</option>
+      <option value="company">Company</option>
+      <option value="status">Status</option>
+    </select>
+
+  </div>
+
+  <form id="jobForm">
+
+    <input type="hidden" id="jobId">
+
+    <input
+      type="text"
+      id="company"
+      placeholder="Company"
+      required
+    >
+
+    <input
+      type="text"
+      id="position"
+      placeholder="Position"
+      required
+    >
+
+    <input
+      type="text"
+      id="location"
+      placeholder="Location"
+    >
+
+    <button type="submit">
+      Save Job
+    </button>
+
+  </form>
+
+  <div id="jobList"></div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
